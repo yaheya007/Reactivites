@@ -1,5 +1,6 @@
 import { Activity } from '../../../App/Models/activity';
-import { Button, Item, ItemGroup, Label, Segment } from 'semantic-ui-react';
+import { Button, Item, Label, Segment } from 'semantic-ui-react';
+import React from 'react';
 
 interface Props {
     activities: Activity[];
@@ -9,11 +10,11 @@ interface Props {
 export default function ActivityList({ activities }: Props) {
     return (
         <Segment>
-            <ItemGroup divided>
+            <Item.Group divided>
                 {activities.map(activity => (
                     <Item key={activity.id}>
                         <Item.Content>
-                            <Item.Header as='a'>{activity.title}</Item.Header>
+                            <Item.Header as='a'> {activity.title} </Item.Header>
                             <Item.Meta>{activity.date}</Item.Meta>
                             <Item.Description>
                                 <div>{activity.description}</div>
@@ -26,7 +27,7 @@ export default function ActivityList({ activities }: Props) {
                         </Item.Content>
                     </Item>
                 ))}
-            </ItemGroup>
+            </Item.Group>
         </Segment>
 
     );
